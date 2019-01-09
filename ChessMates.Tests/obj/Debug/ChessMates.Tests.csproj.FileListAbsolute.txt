@@ -37,3 +37,10 @@ C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tes
 C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tests\obj\Debug\ChessMates.Tests.pdb
 C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tests\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tests\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tests\bin\Debug\System.Web.Http.xml
+C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tests\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\Nevenka\Documents\Visual Studio 2017\Projects\ChessMates\ChessMates.Tests\bin\Debug\System.Net.Http.Formatting.xml
