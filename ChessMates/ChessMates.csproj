@@ -176,6 +176,10 @@
     <Compile Include="Migrations\201901092220591_sort-player-columns.Designer.cs">
       <DependentUpon>201901092220591_sort-player-columns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901101716413_PopoulateTournaments.cs" />
+    <Compile Include="Migrations\201901101716413_PopoulateTournaments.Designer.cs">
+      <DependentUpon>201901101716413_PopoulateTournaments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDatabase.cs" />
     <Compile Include="Models\Continent.cs" />
@@ -287,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901092220591_sort-player-columns.resx">
       <DependentUpon>201901092220591_sort-player-columns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901101716413_PopoulateTournaments.resx">
+      <DependentUpon>201901101716413_PopoulateTournaments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
