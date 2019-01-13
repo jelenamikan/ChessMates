@@ -326,3 +326,6 @@ C:\Users\nikol\Desktop\nov ChessMates\ChessMates\ChessMates\obj\Debug\ChessMates
 C:\Users\nikol\Desktop\nov ChessMates\ChessMates\ChessMates\obj\Debug\ChessMates.dll
 C:\Users\nikol\Desktop\nov ChessMates\ChessMates\ChessMates\obj\Debug\ChessMates.pdb
 C:\Users\nikol\Desktop\nov ChessMates\ChessMates\ChessMates\obj\Debug\ChessMates.Migrations.PopoulateTournaments.resources
+C:\Users\nikol\Desktop\nov ChessMates\ChessMates\ChessMates\bin\AutoMapper.dll
+C:\Users\nikol\Desktop\nov ChessMates\ChessMates\ChessMates\bin\AutoMapper.xml
+C:\Users\nikol\Desktop\nov ChessMates\ChessMates\ChessMates\obj\Debug\ChessMates.Migrations.PopulateTournamentsv1.resources
