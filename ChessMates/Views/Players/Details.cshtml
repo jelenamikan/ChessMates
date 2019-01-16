@@ -1,0 +1,199 @@
+﻿@model ChessMates.Models.Player
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Player</h4>
+    <hr />
+    <table class="table table-bordered table-hover" style="background:aliceblue; width:60%">
+        <tr>
+            <td rowspan="8"><img src="" style="max-width:160px; max-height:200px" /></td>
+            <td>@Html.DisplayFor(model => model.fideid)</td>
+            <td>@Html.DisplayFor(model => model.name)</td>
+        </tr>
+        <tr>
+            <td>Federation</td>
+            <td>@Html.DisplayFor(model => model.country)</td>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td>@Html.DisplayFor(model => model.title)</td>
+        </tr>
+        <tr>
+            <td>Standard Rating</td>
+            <td>@Html.DisplayFor(model => model.rating)</td>
+        </tr>
+        <tr>
+            <td>Blitz Rating</td>
+            <td>@Html.DisplayFor(model => model.blitz_rating)</td>
+        </tr>
+        <tr>
+            <td>Rapid Rating</td>
+            <td>@Html.DisplayFor(model => model.rapid_rating)</td>
+        </tr>
+        <tr>
+            <td>Birthyear</td>
+            <td>@Html.DisplayFor(model => model.birthyear)</td>
+        </tr>
+        <tr>
+            <td>Sex</td>
+            <td>@Html.DisplayFor(model => model.sex)</td>
+        </tr>
+    </table>
+ @*   <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.federation.countryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.federation.countryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.w_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.w_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.o_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.o_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foa_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foa_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.games)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.games)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.k)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.k)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rapid_rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rapid_rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rapid_games)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rapid_games)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rapid_k)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rapid_k)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.blitz_rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blitz_rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.blitz_games)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blitz_games)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.blitz_k)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blitz_k)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birthyear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birthyear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.flag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flag)
+        </dd>
+
+    </dl>*@
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fideid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

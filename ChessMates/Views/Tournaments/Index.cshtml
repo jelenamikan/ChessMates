@@ -6,14 +6,14 @@
 
 <h2>Tournaments</h2>
 
-<table id="tournaments" class="table table-bordered table-hover">
+<table id="tournaments" class="table table-bordered table-hover" style="background-color:aliceblue">
     <thead>
-        <tr>
+        <tr style="background-color:royalblue; color:white">
             <th>Name</th>
             <th>City</th>
             <th>Start</th>
             <th>End</th>
-            @*<th>Delete</th>*@
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody></tbody>
@@ -25,7 +25,7 @@
         $(document).ready(function() {
             var table = $("#tournaments").DataTable({
                 ajax: {
-                    url: "/api/tournaments",
+                    url: "/api/Tournaments",
                     dataSrc: ""
                 },
                 columns: [
@@ -42,12 +42,13 @@
                     {
                         data: "EndDate"
                     },
-                    @*{
+                    {
                         data: "Id",
-                        render: function(data) {
-                            return "<button class='btn-link js-delete' data-tournament-id=" + data + ">Delete</button>";
+                        render: function (data) {
+                            console.log(data);
+                            return "<button class='btn btn-info js-details' data-tournament-id=" + data + "><i class='fa fa-info-circle'></i></button><span width='5px'></span><button class='js-delete btn btn-danger' data-tournament-id=" + data + "><i class='fa fa-trash-o'></i></button>";
                         }
-                    }*@
+                    }
                 ]
             });
 
@@ -61,7 +62,7 @@
                         function(result) {
                             if (result) {
                                 $.ajax({
-                                    url: "/api/tournaments/" + button.attr("data-tournament-id"),
+                                    url: "/api/Tournaments/" + button.attr("data-tournament-id"),
                                     //url: "/api/tournaments/",
                                     method: "DELETE",
                                     success: function() {

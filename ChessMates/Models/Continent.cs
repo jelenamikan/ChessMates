@@ -8,10 +8,12 @@ namespace ChessMates.Models
 {
     public class Continent
     {
-        public int Id { get; set; }
+        [Key]
+        [Required(ErrorMessage = "Code is required")]
+        public string continent { get; set; }
 
         [Required(ErrorMessage = "Name is required")]
-        public string Name { get; set; }
+        public string continentName { get; set; }
 
         public ICollection<Country> Countries { get; set; }
     }

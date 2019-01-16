@@ -26,6 +26,7 @@ namespace ChessMates
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/font-awesome.css",
                       "~/Content/bootstrap-flatly.css",
                       "~/Content/DataTables/css/dataTables.bootstrap.css",
                       "~/Content/site.css"));

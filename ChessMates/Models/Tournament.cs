@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -29,5 +30,9 @@ namespace ChessMates.Models
         public string City { get; set; }
 
         public type Type { get; set; }
+
+        public string isoAlpha3 { get; set; }
+        public Country country { get; set; }
     }
+
 }

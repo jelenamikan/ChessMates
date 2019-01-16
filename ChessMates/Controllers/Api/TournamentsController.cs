@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ChessMates.Models;
+using Newtonsoft.Json.Linq;
 
 namespace ChessMates.Controllers.Api
 {
@@ -70,19 +71,38 @@ namespace ChessMates.Controllers.Api
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Tournaments
-        [ResponseType(typeof(Tournament))]
-        public IHttpActionResult PostTournament(Tournament tournament)
+        /* // POST: api/Tournaments
+         [ResponseType(typeof(Tournament))]
+         public IHttpActionResult PostTournament(Tournament tournament)
+         {
+             if (!ModelState.IsValid)
+             {
+                 return BadRequest(ModelState);
+             }
+
+             db.Tournaments.Add(tournament);
+             db.SaveChanges();
+
+             return CreatedAtRoute("DefaultApi", new { id = tournament.Id }, tournament);
+         }*/
+
+        public IHttpActionResult Post(JArray objData)
         {
-            if (!ModelState.IsValid)
+            List<Tournament> lstItemDetails = new List<Tournament>();
+
+            foreach (var item in objData)
             {
-                return BadRequest(ModelState);
+                lstItemDetails.Add(item.ToObject<Tournament>());
             }
 
-            db.Tournaments.Add(tournament);
+            foreach (Tournament itemDetail in lstItemDetails)
+            {
+                db.Tournaments.Add(itemDetail);
+            }
+
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = tournament.Id }, tournament);
+            return Ok();
         }
 
         // DELETE: api/Tournaments/5

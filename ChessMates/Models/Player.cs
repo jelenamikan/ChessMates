@@ -8,75 +8,54 @@ using System.Web;
 namespace ChessMates.Models
 {
 
-    public enum sex
+    public partial class Player
     {
-        M, F
-    }
+        [Key]
+        [Required(ErrorMessage = "Id is required")]
+        public string fideid { get; set; }
 
-    public enum title
-    {
-        GM, IM, FM, CM, WGM, WIM, WFM, WCM 
-    }
-
-    public class Player
-    {
-        [Column(Order = 0)]
-        public long Id { get; set; }
-
-        [Column(Order = 1)]
         [Required(ErrorMessage = "Name is required")]
-        public string Name { get; set; }
+        public string name { get; set; }
 
-        [Column(Order = 2)]
-        public string Fed { get; set; }
+        public string country { get; set; }
 
-        [Column(Order = 3)]
-        public sex Sex { get; set; }
+        [ForeignKey("country")]
+        public Country federation { get; set; }
 
-        [Column(Order = 4)]
-        public title Title { get; set; }
+        public string sex { get; set; }
 
-        [Column(Order = 5)]
-        public string Wtit { get; set; }
+        public string title { get; set; }
 
-        [Column(Order = 6)]
-        public string Otit { get; set; }
+        public string w_title { get; set; }
 
-        [Column(Order = 7)]
-        public string Foa { get; set; }
+        public string o_title { get; set; }
 
-        [Column(Order = 8)]
-        public int ClRating { get; set; }
+        public string foa_title { get; set; }
 
-        [Column(Order = 9)]
-        public int ClGames { get; set; }
+        public Nullable<int> rating { get; set; }
 
-        [Column(Order = 10)]
-        public int CK { get; set; }
+        public Nullable<int> games { get; set; }
 
-        [Column(Order = 11)]
-        public int RaRating { get; set; }
+        public Nullable<int> k { get; set; }
 
-        [Column(Order = 12)]
-        public int RaGames { get; set; }
+        public Nullable<int> rapid_rating { get; set; }
 
-        [Column(Order = 13)]
-        public int RK { get; set; }
+        public Nullable<int> rapid_games { get; set; }
 
-        [Column(Order = 14)]
-        public int BlRating { get; set; }
+        public Nullable<int> rapid_k { get; set; }
 
-        [Column(Order = 15)]
-        public int BlGames { get; set; }
+        public Nullable<int> blitz_rating { get; set; }
 
-        [Column(Order = 16)]
-        public int BK { get; set; }
+        public Nullable<int> blitz_games { get; set; }
 
-        [Column(Order = 17)]
-        public int BirthYear { get; set; }
+        public Nullable<int> blitz_k { get; set; }
 
-        [Column(Order = 18)]
-        public string Flag { get; set; }
+        public Nullable<int> birthyear { get; set; }
+
+        public string flag { get; set; }
+
+        public string image { get; set; }
 
     }
+
 }

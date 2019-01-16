@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ChessMates.Models;
+using Newtonsoft.Json.Linq;
 
 namespace ChessMates.Controllers.Api
 {
@@ -24,7 +25,7 @@ namespace ChessMates.Controllers.Api
 
         // GET: api/Players/5
         [ResponseType(typeof(Player))]
-        public IHttpActionResult GetPlayer(long id)
+        public IHttpActionResult GetPlayer(string id)
         {
             Player player = db.Players.Find(id);
             if (player == null)
@@ -37,14 +38,14 @@ namespace ChessMates.Controllers.Api
 
         // PUT: api/Players/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutPlayer(long id, Player player)
+        public IHttpActionResult PutPlayer(string id, Player player)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != player.Id)
+            if (id != player.fideid)
             {
                 return BadRequest();
             }
@@ -70,24 +71,44 @@ namespace ChessMates.Controllers.Api
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Players
-        [ResponseType(typeof(Player))]
-        public IHttpActionResult PostPlayer(Player player)
-        {
-            if (!ModelState.IsValid)
+        /*  // POST: api/Players
+          [ResponseType(typeof(Player))]
+          public IHttpActionResult PostPlayer(Player player)
+          {
+              if (!ModelState.IsValid)
+              {
+                  return BadRequest(ModelState);
+              }
+
+              db.Players.Add(player);
+              db.SaveChanges();
+
+              return CreatedAtRoute("DefaultApi", new { id = player.fideid }, player);
+          }*/
+
+
+            public IHttpActionResult PostPlayer(JArray objData)
             {
-                return BadRequest(ModelState);
+                List<Player> lstItemDetails = new List<Player>();
+
+                foreach (var item in objData)
+                {
+                    lstItemDetails.Add(item.ToObject<Player>());
+                }
+
+                foreach (Player itemDetail in lstItemDetails)
+                {
+                    db.Players.Add(itemDetail);
+                }
+
+                db.SaveChanges();
+
+                return Ok();
             }
-
-            db.Players.Add(player);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = player.Id }, player);
-        }
 
         // DELETE: api/Players/5
         [ResponseType(typeof(Player))]
-        public IHttpActionResult DeletePlayer(long id)
+        public IHttpActionResult DeletePlayer(string id)
         {
             Player player = db.Players.Find(id);
             if (player == null)
@@ -110,9 +131,9 @@ namespace ChessMates.Controllers.Api
             base.Dispose(disposing);
         }
 
-        private bool PlayerExists(long id)
+        private bool PlayerExists(string id)
         {
-            return db.Players.Count(e => e.Id == id) > 0;
+            return db.Players.Count(e => e.fideid == id) > 0;
         }
     }
 }
