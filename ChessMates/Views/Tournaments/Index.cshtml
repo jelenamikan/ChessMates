@@ -4,6 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Tournaments</h2>
+@using (Html.BeginForm("Create", "Tournaments"))
+{
+    <button type="submit" value="Create New" class="btn btn-success"><i class="fa fa-calendar-plus-o"> Create</i></button>
+}
+<br />
 <table id="tournaments" class="table table-bordered table-hover" style="background-color:aliceblue">
     <thead>
         <tr style="background-color:royalblue; color:white">
@@ -16,10 +21,7 @@
     </thead>
     <tbody></tbody>
 </table>
-@using (Html.BeginForm("Create", "Tournaments"))
-{
-    <input type="submit" value="Create New" class="btn btn-success" />
-}
+
 @section scripts
 {
     <script>

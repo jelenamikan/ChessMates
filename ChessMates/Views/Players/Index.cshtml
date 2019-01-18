@@ -4,7 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Players</h2>
-<hr />
+@using (Html.BeginForm("Create", "Players"))
+{
+    <button type="submit" value="Create New" class="btn btn-success"><i class="fa fa-user-plus"> Create</i></button>
+}
+<br />
 <table id="players" class="table table-bordered table-hover" style="background-color:aliceblue">
     <thead>
         <tr style="background-color:royalblue; color:white">
@@ -19,10 +23,7 @@
     </thead>
     <tbody></tbody>
 </table>
-@using (Html.BeginForm("Create", "Players"))
-{
-    <input type="submit" value="Create New" class="btn btn-success" />
-}
+
 @section scripts
 {
     <script>
