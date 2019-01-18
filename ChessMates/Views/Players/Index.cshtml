@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Players</h2>
+<hr />
 <table id="players" class="table table-bordered table-hover" style="background-color:aliceblue">
     <thead>
         <tr style="background-color:royalblue; color:white">
@@ -18,10 +19,13 @@
     </thead>
     <tbody></tbody>
 </table>
-
+@using (Html.BeginForm("Create", "Players"))
+{
+    <input type="submit" value="Create New" class="btn btn-success" />
+}
 @section scripts
 {
-<script>
+    <script>
     $(document).ready(function () {
         var table = $("#players").DataTable({
             ajax: {
@@ -50,7 +54,7 @@
                 {
                     data: "fideid",
                     render: function (data) {
-                        return "<a href='Players/Details/" + data + "'><button class='btn btn-info js-details'><i class='fa fa-info-circle' style='color:white'></i></button></a><button class='js-delete btn btn-danger' data-tournament-id=" + data + "><i class='fa fa-trash-o'></i></button>";
+                        return "<a href='/Players/Details/" + data + "'><button class='btn btn-info js-details'><i class='fa fa-info-circle' style='color:white'></i></button></a><button class='js-delete btn btn-danger' data-player-id=" + data + "><i class='fa fa-trash-o'></i></button>";
                         }
                     }
                 ]
@@ -75,5 +79,5 @@
                             });
 
                         });
-</script>
+    </script>
 }

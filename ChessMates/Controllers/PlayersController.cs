@@ -17,12 +17,6 @@ namespace ChessMates.Controllers
         // GET: Players
         public ActionResult Index()
         {
-            //var players = db.Players.Include(p => p.federation);
-            foreach(Player p in db.Players)
-            {
-                p.federation = db.Countries.Find(p.country);
-            }
-            db.SaveChanges();
             return View();
         }
 
