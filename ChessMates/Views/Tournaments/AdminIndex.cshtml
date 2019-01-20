@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ChessMates.Models.Tournament>
+@{
+    ViewBag.Title = "Tournaments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Tournaments</h2>
+@using (Html.BeginForm("Create", "Tournaments"))
+{
+    <button type="submit" value="Create New" class="btn btn-success"><i class="fa fa-calendar-plus-o"> Create</i></button>
+}
+<br />
+<table id="tournaments" class="table table-bordered table-hover" style="background-color:aliceblue">
+    <thead>
+        <tr style="background-color:royalblue; color: white">
+            @*cadetblue*@
+            <th>Name</th>
+            <th>City</th>
+            <th>Start</th>
+            <th>End</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            var table = $("#tournaments").DataTable({
+                ajax: {
+                    url: "/api/Tournaments",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "Name"
+                    },
+                    {
+                        data: "City"
+                    },
+                    {
+                        data: "StartDate"
+                        @*@Html.TextBoxFor(m => m.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })*@
+                    },
+                    {
+                        data: "EndDate"
+                    },
+                    {
+                        data: "Id",
+                        render: function (data) {
+                            console.log(data);
+                            return "<a href='/Tournaments/Details/" + data + "'><button class='btn btn-info js-details'><i class='fa fa-info-circle' style='color:white'></i></button></a><button class='js-delete btn btn-danger' data-tournament-id=" + data + "><i class='fa fa-trash-o'></i></button>";
+                        }
+                    }
+                ]
+            });
+
+
+            $("#tournaments").on("click",
+                ".js-delete",
+                function() {
+                    var button = $(this);
+
+                    bootbox.confirm("Are you sure you want to delete this tournament?",
+                        function(result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/Tournaments/" + button.attr("data-tournament-id"),
+                                    //url: "/api/tournaments/",
+                                    method: "DELETE",
+                                    success: function() {
+                                        table.row(button.parents("tr")).remove().draw();
+                                    }
+                                });
+                            }
+                        });
+                });
+        });
+    </script>
+}

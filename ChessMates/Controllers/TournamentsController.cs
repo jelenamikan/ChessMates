@@ -17,7 +17,11 @@ namespace ChessMates.Controllers
         // GET: Tournaments
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.Admin))
+            {
+                return View("AdminIndex");
+            }
+            return View("GuestIndex");
         }
 
         // GET: Tournaments/Details/5
@@ -36,6 +40,7 @@ namespace ChessMates.Controllers
         }
 
         // GET: Tournaments/Create
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Create()
         {
             ViewBag.isoAlpha3 = new SelectList(db.Countries, "isoAlpha3", "countryName");
@@ -47,6 +52,7 @@ namespace ChessMates.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Create([Bind(Include = "Id,Name,StartDate,EndDate,City,Type,isoAlpha3")] Tournament tournament)
         {
             if (ModelState.IsValid)
@@ -61,6 +67,7 @@ namespace ChessMates.Controllers
         }
 
         // GET: Tournaments/Edit/5
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Edit(long? id)
         {
             if (id == null)
@@ -81,6 +88,7 @@ namespace ChessMates.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Edit([Bind(Include = "Id,Name,StartDate,EndDate,City,Type,isoAlpha3")] Tournament tournament)
         {
             if (ModelState.IsValid)
@@ -94,6 +102,7 @@ namespace ChessMates.Controllers
         }
 
         // GET: Tournaments/Delete/5
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Delete(long? id)
         {
             if (id == null)
@@ -111,6 +120,7 @@ namespace ChessMates.Controllers
         // POST: Tournaments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult DeleteConfirmed(long id)
         {
             Tournament tournament = db.Tournaments.Find(id);

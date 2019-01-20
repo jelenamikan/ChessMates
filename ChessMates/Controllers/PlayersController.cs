@@ -17,7 +17,11 @@ namespace ChessMates.Controllers
         // GET: Players
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.Admin))
+            {
+                return View("AdminIndex");
+            }
+            return View("GuestIndex");
         }
 
         // GET: Players/Details/5
@@ -36,6 +40,7 @@ namespace ChessMates.Controllers
         }
 
         // GET: Players/Create
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Create()
         {
             ViewBag.country = new SelectList(db.Countries, "isoAlpha3", "countryName");
@@ -47,6 +52,7 @@ namespace ChessMates.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Create([Bind(Include = "fideid,name,country,sex,title,w_title,o_title,foa_title,rating,games,k,rapid_rating,rapid_games,rapid_k,blitz_rating,blitz_games,blitz_k,birthyear,flag,image")] Player player)
         {
             if (ModelState.IsValid)
@@ -61,6 +67,7 @@ namespace ChessMates.Controllers
         }
 
         // GET: Players/Edit/5
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -81,6 +88,7 @@ namespace ChessMates.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Edit([Bind(Include = "fideid,name,country,sex,title,w_title,o_title,foa_title,rating,games,k,rapid_rating,rapid_games,rapid_k,blitz_rating,blitz_games,blitz_k,birthyear,flag,image")] Player player)
         {
             if (ModelState.IsValid)
@@ -94,6 +102,7 @@ namespace ChessMates.Controllers
         }
 
         // GET: Players/Delete/5
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -111,6 +120,7 @@ namespace ChessMates.Controllers
         // POST: Players/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult DeleteConfirmed(string id)
         {
             Player player = db.Players.Find(id);

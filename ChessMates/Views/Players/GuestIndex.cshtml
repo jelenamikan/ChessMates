@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ChessMates.Models.Player>
+@{
+    ViewBag.Title = "Players";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Players</h2>
+
+<table id="players" class="table table-bordered table-hover" style="background-color:aliceblue">
+    <thead>
+        <tr style="background-color:royalblue; color:white">
+            <th>Name</th>
+            <th>Country</th>
+            <th>Sex</th>
+            <th>Birthyear</th>
+            <th>Title</th>
+            <th>Standard Rating</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section scripts
+{
+    <script>
+    $(document).ready(function () {
+        var table = $("#players").DataTable({
+            ajax: {
+                url: "/api/Players",
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "name"
+                },
+                {
+                    data: "country"
+                },
+                {
+                    data: "sex"
+                },
+                {
+                    data: "birthyear"
+                },
+                {
+                    data: "title"
+                },
+                {
+                    data: "rating"
+                },
+                {
+                    data: "fideid",
+                    render: function (data) {
+                        return "<a href='/Players/Details/" + data + "'><button class='btn btn-info js-details'><i class='fa fa-info-circle' style='color:white'></i></button></a>";
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+}

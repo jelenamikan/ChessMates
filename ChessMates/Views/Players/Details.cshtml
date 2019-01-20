@@ -1,4 +1,5 @@
-﻿@model ChessMates.Models.Player
+﻿@using ChessMates.Models
+@model ChessMates.Models.Player
 
 @{
     ViewBag.Title = "Details";
@@ -194,6 +195,10 @@
     </dl>*@
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.fideid }) |
+    @if (User.IsInRole(RoleName.Admin))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.fideid });
+        //"|"
+    }
     @Html.ActionLink("Back to List", "Index")
 </p>
