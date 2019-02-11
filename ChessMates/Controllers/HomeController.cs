@@ -14,6 +14,7 @@ namespace ChessMates.Controllers
             return View();
         }
 
+        [OverrideAuthorization]
         public ActionResult Game()
         {
             return View();
