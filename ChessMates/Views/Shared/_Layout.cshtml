@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - ChessMates</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body style="background-image: url('https://is.gd/ipD9qS'); background-repeat: repeat;">
     @Html.Partial("_NavBar")
     <div class="container body-content">
         @RenderBody()

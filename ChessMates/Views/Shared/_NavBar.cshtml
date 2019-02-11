@@ -5,14 +5,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
             @Html.ActionLink("ChessMates", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Tournaments", "Index", "Tournaments")</li>
+                <li>@Html.ActionLink("News", "Index", "News")</li>
+                <li>@Html.ActionLink("Play", "Game", "Home")</li>
                 <li>@Html.ActionLink("Players", "Index", "Players")</li>
+                <li>@Html.ActionLink("Tournaments", "Index", "Tournaments")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

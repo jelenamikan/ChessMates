@@ -1,0 +1,26 @@
+﻿@model ChessMates.Models.News
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container well" style="margin-top:5rem">
+    <h2>@Model.Title</h2>
+    <br />
+    <div>
+        <img src="@Model.ImageUrl" style="width:100%" />
+    </div><br />
+    <div>
+        @Html.Raw(Model.Body)
+    </div><br />
+    <span><i class="glyphicon glyphicon-calendar"></i>@Model.Date.ToShortDateString()</span>
+    <span class="pull-right"><i>by @Model.Author</i></span>
+    <br />
+</div>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

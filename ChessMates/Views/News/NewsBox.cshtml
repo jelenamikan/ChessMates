@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ChessMates.Models.News>
+
+<div class="container bg-primary" style="max-width:20rem; color: white; border-radius: 6px">
+    <h4 style="text-align: center">Latest News</h4><hr />
+    @foreach (var item in Model)
+    {
+        <div class="well-sm">
+            @Html.ActionLink(item.Title,"Details", new {id = item.Id})
+        </div>
+    }
+</div>
+

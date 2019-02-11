@@ -20,9 +20,11 @@ namespace ChessMates.Models
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
 
+        [Display(Name = "Start Date")]
         [Required(ErrorMessage = "Start Date is required")]
         public DateTime StartDate { get; set; }
 
+        [Display(Name = "End Date")]
         [Required(ErrorMessage = "End Date is required")]
         public DateTime EndDate { get; set; }
 
@@ -31,8 +33,23 @@ namespace ChessMates.Models
 
         public type Type { get; set; }
 
+        [Display(Name = "Federation")]
         public string isoAlpha3 { get; set; }
         public Country country { get; set; }
+
+        public string StartString { get
+            {
+                return this.StartDate.ToShortDateString();
+            }
+        }
+
+        public string EndString
+        {
+            get
+            {
+                return this.EndDate.ToShortDateString();
+            }
+        }
     }
 
 }

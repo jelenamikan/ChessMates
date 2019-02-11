@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ChessMates.Models.News>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="padding-top: 5rem;">
+    <a class="btn btn-success" href="/News/Create" style="margin: 2rem"><i class="fa fa-newspaper-o"></i>  Create</a>
+    <div class="container" style="display: flex">
+        <div class="well" style="max-width:70%">
+            @foreach (var item in Model)
+            {
+                <div class="media" style="padding: 1rem">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src=@item.ImageUrl style="max-width: 250px">
+                    </a>
+                    <div class="media-body">
+                        <h3 class="media-heading">@item.Title</h3><br />
+                        <p class="text-right"><i>by @item.Author</i></p>
+                        <p>
+                            @Html.Raw(item.Description)
+                        </p><br />
+                        <a class="btn btn-primary pull-right" href="/News/Details/@item.Id">READ MORE</a>
+                        <ul class="list-inline list-unstyled">
+                            <li><span><i class="glyphicon glyphicon-calendar"></i>@item.Date.ToShortDateString()</span></li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="pull-right" style="width: 25%">
+            @Html.Partial("NewsBox")
+        </div>
+    </div>
+</div>
+

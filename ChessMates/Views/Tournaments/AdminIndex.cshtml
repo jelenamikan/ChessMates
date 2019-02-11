@@ -29,6 +29,8 @@
         $(document).ready(function() {
             var table = $("#tournaments").DataTable({
                 ajax: {
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
                     url: "/api/Tournaments",
                     dataSrc: ""
                 },
@@ -40,11 +42,10 @@
                         data: "City"
                     },
                     {
-                        data: "StartDate"
-                        @*@Html.TextBoxFor(m => m.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })*@
+                        data: "StartString"
                     },
                     {
-                        data: "EndDate"
+                        data: "EndString"
                     },
                     {
                         data: "Id",

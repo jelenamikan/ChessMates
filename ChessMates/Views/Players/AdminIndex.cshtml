@@ -24,61 +24,61 @@
     <tbody></tbody>
 </table>
 
-@section scripts
-{
-    <script>
-    $(document).ready(function () {
-        var table = $("#players").DataTable({
-            ajax: {
-                url: "/api/Players",
-                dataSrc: ""
-            },
-            columns: [
-                {
-                    data: "name"
+    @section scripts
+    {
+        <script>
+        $(document).ready(function () {
+            var table = $("#players").DataTable({
+                ajax: {
+                    url: "/api/Players",
+                    dataSrc: ""
                 },
-                {
-                    data: "country"
-                },
-                {
-                    data: "sex"
-                },
-                {
-                    data: "birthyear"
-                },
-                {
-                    data: "title"
-                },
-                {
-                    data: "rating"
-                },
-                {
-                    data: "fideid",
-                    render: function (data) {
-                        return "<a href='/Players/Details/" + data + "'><button class='btn btn-info js-details'><i class='fa fa-info-circle' style='color:white'></i></button></a><button class='js-delete btn btn-danger' data-player-id=" + data + "><i class='fa fa-trash-o'></i></button>";
+                columns: [
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "country"
+                    },
+                    {
+                        data: "sex"
+                    },
+                    {
+                        data: "birthyear"
+                    },
+                    {
+                        data: "title"
+                    },
+                    {
+                        data: "rating"
+                    },
+                    {
+                        data: "fideid",
+                        render: function (data) {
+                            return "<a href='/Players/Details/" + data + "'><button class='btn btn-info js-details'><i class='fa fa-info-circle' style='color:white'></i></button></a><button class='js-delete btn btn-danger' data-player-id=" + data + "><i class='fa fa-trash-o'></i></button>";
+                            }
                         }
-                    }
-                ]
-            });
-                            /**/
+                    ]
+                });
+                                /**/
 
 
-                            $("#players").on("click", ".js-delete", function () {
-                                var button = $(this);
-                                bootbox.confirm("Are you sure you want to delete this player?",
-                                    function (result) {
-                                        if (result) {
-                                            $.ajax({
-                                                url: "/api/Players/" + button.attr("data-player-id"),
-                                                method: "DELETE",
-                                                success: function () {
-                                                    table.row(button.parents("tr")).remove().draw();
-                                                }
-                                            });
-                                        }
-                                    });
+                                $("#players").on("click", ".js-delete", function () {
+                                    var button = $(this);
+                                    bootbox.confirm("Are you sure you want to delete this player?",
+                                        function (result) {
+                                            if (result) {
+                                                $.ajax({
+                                                    url: "/api/Players/" + button.attr("data-player-id"),
+                                                    method: "DELETE",
+                                                    success: function () {
+                                                        table.row(button.parents("tr")).remove().draw();
+                                                    }
+                                                });
+                                            }
+                                        });
+                                });
+
                             });
-
-                        });
-    </script>
-}
+        </script>
+    }
