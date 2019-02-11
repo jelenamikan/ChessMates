@@ -4,10 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Players</h2>
-@using (Html.BeginForm("Create", "Players"))
-{
-    <button type="submit" value="Create New" class="btn btn-success"><i class="fa fa-user-plus"> Create</i></button>
-}
+
+<a href="/Players/Create" class="pull-right" style="margin-bottom: 1rem"><button class="btn btn-success"><i class="fa fa-user-plus"> Create</i></button></a>
+
 <br />
 <table id="players" class="table table-bordered table-hover" style="background-color:aliceblue">
     <thead>
