@@ -24,6 +24,11 @@ namespace ChessMates.Controllers
             return View("GuestIndex");
         }
 
+        public ActionResult TopPlayers()
+        {
+            return PartialView(db.Players.OrderByDescending(x => x.rating).Take(5));
+        }
+
         // GET: Players/Details/5
         public ActionResult Details(string id)
         {

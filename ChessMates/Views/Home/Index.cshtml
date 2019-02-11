@@ -1,3 +1,20 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+
+<div class="container" style="padding-top: 5rem;">
+    <div class="container" style="display:flex;">
+        <div style="max-width: 70%">
+            @Html.Action("Carousel", "News")
+            <div style="text-align: center">
+                <h3>Can you solve this?</h3><br />
+                <iframe src="https://livetactics.chessbase.com" style="width: 50rem; height: 50rem"></iframe>    
+            </div>
+        </div>
+        <div class="pull-right" style="width: 25%">
+            @Html.Action("NewsBox", "News")
+            @Html.Action("TopPlayers", "Players")
+            @Html.Action("TournamentsBox", "Tournaments")
+        </div>
+    </div>
+</div>

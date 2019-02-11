@@ -6,7 +6,10 @@
 }
 
 <div class="container" style="padding-top: 5rem;">
-    <a class="btn btn-success" href="/News/Create" style="margin: 2rem"><i class="fa fa-newspaper-o"></i>  Create</a>
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-success" href="/News/Create" style="margin: 2rem"><i class="fa fa-newspaper-o"></i>  Create</a>
+    }
     <div class="container" style="display: flex">
         <div class="well" style="max-width:70%">
             @foreach (var item in Model)
@@ -31,6 +34,8 @@
         </div>
         <div class="pull-right" style="width: 25%">
             @Html.Partial("NewsBox")
+            @Html.Action("TopPlayers", "Players")
+            @Html.Action("TournamentsBox", "Tournaments")
         </div>
     </div>
 </div>

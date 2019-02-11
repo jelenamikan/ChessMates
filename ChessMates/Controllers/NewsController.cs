@@ -37,7 +37,12 @@ namespace ChessMates.Controllers
 
         public ActionResult NewsBox()
         {
-            return View(db.News.ToList().OrderBy(x => x.Date).Take(5));
+            return PartialView(db.News.ToList().OrderBy(x => x.Date).Take(5));
+        }
+
+        public ActionResult Carousel()
+        {
+            return PartialView(db.News.ToList().OrderBy(x => x.Date).Take(5));
         }
 
         // GET: News/Create

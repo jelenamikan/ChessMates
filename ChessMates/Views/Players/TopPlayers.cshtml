@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ChessMates.Models.Player>
+
+<div class="container bg-primary" style="max-width:20rem; color: white; border-radius: 6px; margin-top: 5rem">
+    <h4 style="text-align: center">Top Players</h4><hr />
+    @{int num = 1; }
+    @foreach (var item in Model)
+    {
+        <div class="well-sm">
+            @Html.ActionLink(num++ + ". " + item.name, "Details", new { id = item.fideid })
+        </div>
+    }
+</div>

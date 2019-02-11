@@ -24,6 +24,11 @@ namespace ChessMates.Controllers
             return View("GuestIndex");
         }
 
+        public ActionResult TournamentsBox()
+        {
+            return PartialView(db.Tournaments.ToList().OrderByDescending(x => x.StartDate).Take(5));
+        }
+
         // GET: Tournaments/Details/5
         public ActionResult Details(long? id)
         {
